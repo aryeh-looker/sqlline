@@ -1332,7 +1332,7 @@ public class Commands {
       }
     } else {
       try {
-        Class.forName(driver);
+        Thread.currentThread().getContextClassLoader().loadClass(driver);
       } catch (ClassNotFoundException cnfe) {
         String specifiedDriver = driver;
         if ((driver = sqlLine.scanForDriver(url)) == null) {
